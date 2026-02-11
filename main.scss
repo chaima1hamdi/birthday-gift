@@ -1,0 +1,263 @@
+// نظام الألوان الملكي الليلي
+$primary-bg: #0D1B1E;
+$secondary-bg: #102A2E;
+$accent-gold: #D4AF37;
+$soft-ivory: #F5F5F5;
+$muted-emerald: #2F6F64;
+$error-red: #FF6B6B;
+$warning-orange: #FF8E53;
+
+// الخطوط
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+// إعادة الضبط العام
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: $primary-bg;
+  color: $soft-ivory;
+  min-height: 100vh;
+  overflow-x: hidden;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+// تأثيرات الزجاج الفاخرة
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-morphism-heavy {
+  background: rgba(13, 27, 30, 0.8);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 25px;
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+// أنيميشن الأناقة
+@keyframes subtle-pulse {
+  0%, 100% { 
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+  }
+  33% { 
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% { 
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes golden-glow {
+  0%, 100% { 
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// فئات مساعدة
+.subtle-pulse {
+  animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+.gentle-float {
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+.golden-glow {
+  animation: golden-glow 3s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 1.2s ease-out forwards;
+}
+
+.fade-in-down {
+  animation: fade-in-down 1.2s ease-out forwards;
+}
+
+// تدرج الذهب الفاخر
+.gold-gradient {
+  background: linear-gradient(45deg, #D4AF37, #FFD700, #D4AF37);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+// التجاوب مع الجوال
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .glass-morphism,
+  .glass-morphism-heavy {
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.8rem !important;
+  }
+}
+
+// تحسينات الأداء
+.perf-optimize {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+// تجاوزات Bootstrap (إذا لزم الأمر)
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// إخفاء شريط التمرير مع الحفاظ على الوظيفة
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// تحسينات للنصوص العربية
+.arabic-text {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  letter-spacing: normal;
+  line-height: 1.8;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+} 
+// ===== RESPONSIVE ENHANCEMENTS =====
+:root {
+  --gold: #D4AF37;
+  --emerald: #1F7A63;
+  --error: #FF6B6B;
+}
+
+// Fluid font sizes using clamp()
+html {
+  font-size: 16px;
+  
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 6vw, 2.8rem);
+}
+
+p {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+}
+
+// All clickable elements must have minimum touch target size
+button,
+.btn,
+[role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.8rem 1.5rem;
+  
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+// Prevent horizontal overflow
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Glass morphism on mobile – lighter blur for performance
+@media (max-width: 768px) {
+  .glass-morphism-heavy {
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+  }
+}
